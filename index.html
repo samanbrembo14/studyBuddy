@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Study</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<audio id="pomodoro-sound" src="assets/alarm.wav" preload="auto"></audio>
+<body>
+  <button id="toggle-theme">🌓 Ganti Tema</button>
+  <div id="loader" class="hidden">⏳ Menyimpan...</div>
+  <div class="container">
+    <header data-aos="fade-down">
+      <h1>🎓 StudyBuddy</h1>
+      <p class="subtitle">Dashboard Alwii</p>
+    </header>
+
+    <section id="time-section" data-aos="zoom-in">
+      <h2>🕒 Waktu Saat Ini</h2>
+      <p id="current-time">--:--</p>
+    </section>
+
+    <section id="todo-section" data-aos="fade-right">
+      <h2>📌 Daftar Tugas</h2>
+      <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Tambah tugas baru..." required />
+        <button type="submit">Tambah</button>
+      </form>
+      <ul id="todo-list"></ul>
+    </section>
+
+    <section id="notes-section" data-aos="fade-left">
+        <h2>📝 Catatan Kuliah</h2>
+        <div class="notes-container">
+            <textarea id="notes-area" placeholder="Tulis atau update catatanmu di sini..."></textarea>
+            <div class="notes-actions">
+                <button id="save-notes">💾 Simpan Catatan</button>
+            </div>
+        </div>
+    </section>
+  
+    <section id="notes-display-section" data-aos="fade-up">
+        <div class="collapsible-header" id="toggle-notes-display">
+          <h2>📂 Catatan Terakhir</h2>
+          <i class='bx bx-chevron-down'></i>
+        </div>
+        <div id="notes-display-container" class="collapsed">
+          <ul id="display-notes" class="notes-display-box">
+            <li><em>Belum ada catatan tersimpan.</em></li>
+          </ul>
+        </div>
+      </section>      
+    
+    <section id="pomodoro-section" data-aos="flip-up">
+        <h2>⏳ Fokus Timer (Pomodoro)</h2>
+        <div class="pomodoro-settings">
+          <label for="pomodoro-input">Durasi (menit):</label>
+          <input type="number" id="pomodoro-input" min="1" max="120" value="25" />
+        </div>
+        <p id="pomodoro-timer">25:00</p>
+        <button id="start-pomodoro">Mulai</button>
+        <button id="reset-pomodoro">Reset</button>
+    </section>
+  </div>
+
+  <script type="module" src="script/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true
+    });
+  </script>
+</body>
+</html>
